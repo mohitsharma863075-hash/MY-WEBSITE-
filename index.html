@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mohit Sharma | Graphic & Web Designer</title>
+  <!-- Google Fonts + Smooth Icons (Font Awesome CDN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Advanced Features CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Dark elegant background with gradient */
+      background: linear-gradient(135deg, #0f0c1f 0%, #1a1535 50%, #0d0b1a 100%);
+      color: #f0f0f5;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      cursor: auto; /* Normal default cursor */
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(15, 12, 31, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 12px 0;
+      background-color: rgba(15, 12, 31, 0.95);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #c084fc, #a855f7, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #e0d6ff;
+      transition: 0.2s ease;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #c084fc;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #7c3aed, #5b21b6);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #a855f7;
+      color: #c084fc;
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background: rgba(139, 92, 246, 0.15);
+      color: #e9d5ff;
+      border-color: #c084fc;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(15, 12, 31, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: rgba(139, 92, 246, 0.15);
+      color: #c084fc;
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+      70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+    }
+
+    .hero-content h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out;
+      background: linear-gradient(135deg, #ffffff, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.4) 40%, transparent 60%);
+      padding: 0 8px;
+      display: inline-block;
+      border-radius: 8px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #b4b0c9;
+      margin-bottom: 32px;
+      max-width: 550px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 0.9;
+      background: rgba(139, 92, 246, 0.08);
+      border-radius: 48px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 25px 40px -20px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: float 3s ease-in-out infinite;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      backdrop-filter: blur(4px);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-image:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 30px 50px -20px rgba(139, 92, 246, 0.2);
+    }
+
+    .avatar-icon {
+      font-size: 8rem;
+      background: linear-gradient(135deg, #1a1535, #2d2352);
+      width: 180px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      margin: 0 auto 20px;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(139, 92, 246, 0.5);
+    }
+
+    .avatar-icon i {
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .avatar-icon:hover {
+      transform: rotate(5deg) scale(1.05);
+      border-color: #c084fc;
+    }
+
+    /* Services Section */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      background: linear-gradient(135deg, #ffffff, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      border-radius: 3px;
+      animation: widthGrow 0.6s ease-out;
+    }
+
+    @keyframes widthGrow {
+      from { width: 0; opacity: 0; }
+      to { width: 60px; opacity: 1; }
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #9b96b5;
+      max-width: 620px;
+      margin: 0 auto 48px;
+      font-size: 1.1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .service-card {
+      background: rgba(26, 21, 53, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .service-card:hover::before {
+      left: 100%;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: 0 25px 35px -15px rgba(139, 92, 246, 0.2);
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .service-card h3 {
+      color: #e0d6ff;
+    }
+
+    .service-card p {
+      color: #9b96b5;
+    }
+
+    /* Portfolio Section */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 20px;
+    }
+
+    .portfolio-item {
+      background: rgba(26, 21, 53, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      position: relative;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 24px 40px -12px rgba(139, 92, 246, 0.3);
+      border-color: rgba(139, 92, 246, 0.5);
+    }
+
+    .portfolio-img {
+      background: rgba(15, 12, 31, 0.8);
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portfolio-img img {
+      transition: transform 0.5s ease;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .portfolio-item:hover .portfolio-img img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-info h3 {
+      color: #e0d6ff;
+    }
+
+    .portfolio-info p {
+      color: #9b96b5;
+    }
+
+    .portfolio-info {
+      padding: 22px 20px 26px;
+    }
+
+    /* About Section */
+    .about-wrap {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: center;
+      background: rgba(26, 21, 53, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 48px;
+      padding: 48px 40px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .about-wrap:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    .about-text h2 {
+      color: #e0d6ff;
+    }
+
+    .about-text p {
+      color: #9b96b5;
+    }
+
+    .skill-badge span {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: inline-block;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c084fc;
+    }
+
+    .skill-badge span:hover {
+      transform: translateY(-2px) scale(1.05);
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      color: white;
+    }
+
+    .about-stats .stat {
+      transition: transform 0.3s ease;
+    }
+
+    .about-stats .stat:hover {
+      transform: translateX(5px);
+    }
+
+    .stat-number {
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: rgba(26, 21, 53, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+      padding: 48px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 50px -12px rgba(139, 92, 246, 0.25);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    .contact-card h2 {
+      color: #e0d6ff;
+    }
+
+    .contact-card p {
+      color: #9b96b5;
+    }
+
+    .contact-item {
+      transition: all 0.3s ease !important;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c084fc;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px) scale(1.02);
+      background: rgba(139, 92, 246, 0.25);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0820;
+      color: #8b86a3;
+      padding: 40px 0;
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid rgba(139, 92, 246, 0.2);
+    }
+
+    .footer-social a {
+      transition: all 0.3s ease;
+      display: inline-block;
+      color: #a855f7;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: #c084fc;
+    }
+
+    /* Scroll Progress Bar */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #c084fc, #a855f7, #7c3aed);
+      z-index: 1001;
+      transition: width 0.1s ease;
+      box-shadow: 0 0 8px rgba(192, 132, 252, 0.8);
+    }
+
+    /* Particle Canvas */
+    #particleCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+    }
+
+    .back-to-top i {
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    /* Loading Animation */
+    .loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0f0c1f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loader-wrapper.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(139, 92, 246, 0.3);
+      border-top: 3px solid #c084fc;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Website Links Styling */
+    .website-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .website-link {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 50px;
+      padding: 12px 24px;
+      text-decoration: none;
+      color: #c084fc;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .website-link:hover {
+      background: rgba(139, 92, 246, 0.3);
+      transform: translateX(10px);
+      color: white;
+    }
+
+    /* Animations */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    .hero-content h1 {
+      background: linear-gradient(120deg, #ffffff, #c084fc, #a855f7, #c084fc, #ffffff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmer 5s linear infinite, fadeInUp 0.8s ease-out;
+    }
+    
+    @keyframes softBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    
+    .service-card:hover, .portfolio-item:hover {
+      animation: softBounce 0.5s ease;
+    }
+    
+    @keyframes borderGlow {
+      0% { border-color: rgba(139, 92, 246, 0.2); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); }
+      50% { border-color: rgba(192, 132, 252, 0.6); box-shadow: 0 12px 50px rgba(139, 92, 246, 0.3); }
+      100% { border-color: rgba(139, 92, 246, 0.2); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2); }
+    }
+    
+    .contact-card {
+      animation: borderGlow 4s ease-in-out infinite;
+    }
+    
+    @keyframes textGlow {
+      0% { text-shadow: 0 0 0px rgba(192, 132, 252, 0); }
+      50% { text-shadow: 0 0 12px rgba(192, 132, 252, 0.3); }
+      100% { text-shadow: 0 0 0px rgba(192, 132, 252, 0); }
+    }
+    
+    .section-title {
+      animation: textGlow 3s ease-in-out infinite;
+    }
+
+    /* Count Animation for Stats */
+    .stat-number {
+      display: inline-block;
+    }
+
+    /* Responsive */
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero-content h1 {
+        font-size: 2.6rem;
+      }
+      .nav-links {
+        gap: 1.4rem;
+        margin-top: 12px;
+      }
+      .nav-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .about-wrap {
+        padding: 32px 24px;
+      }
+      .section {
+        padding: 60px 0;
+      }
+      #particleCanvas {
+        display: none;
+      }
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Loading Animation -->
+<div class="loader-wrapper" id="loaderWrapper">
+  <div class="loader"></div>
+</div>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop">
+  <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Background Particle Canvas -->
+<canvas id="particleCanvas"></canvas>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-wrapper">
+    <div class="logo">Mohit Sharma | Graphic & Web Designer</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content" data-aos="fade-right" data-aos-duration="800">
+        <div class="hero-badge"><i class="fas fa-pen-fancy"></i> Graphic + Web Designer</div>
+        <h1> <span class="highlight">Graphic Designer & Web Designer</span> <br> with design & code</h1>
+        <p>I'm Mohit Sharma — a graphic & web designer who builds bold identities, immersive interfaces, and memorable brand experiences.</p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn-primary">View Portfolio <i class="fas fa-arrow-right"></i></a>
+          <a href="#contact" class="btn-outline">Let's Talk</a>
+        </div>
+      </div>
+      <div class="hero-image" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+        <div class="avatar-icon">
+          <i class="fas fa-paintbrush"></i>
+        </div>
+        <p><i class="fas fa-check-circle"></i> 2+ years of Graphic & Web development excellence</p>
+        <p style="margin-top: 10px;"><i class="fas fa-code"></i> 50+ projects delivered</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">What I Deliver</h2>
+      <div class="section-sub" data-aos="fade-up" data-aos-delay="100">Creative solutions blending graphic identity and modern web interfaces</div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="0">
+          <div class="service-icon"><i class="fas fa-palette"></i></div>
+          <h3>Graphic Design</h3>
+          <p>Logo design, branding, posters, social media visuals, and full visual identity systems that stand out.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+          <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Web Design</h3>
+          <p>Hotel Website, e-commerce platforms, Resort Website and corporate websites with modern aesthetics.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Front-End Dev</h3>
+          <p>Clean HTML/CSS, interactive components, and pixel-perfect implementation from design files.</p>
+        </div>
+        <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Brand Strategy</h3>
+          <p>Helping businesses tell their story with cohesive design language across all touchpoints.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Selected Work</h2>
+      <div class="section-sub" data-aos="fade-up" data-aos-delay="100">A glimpse of recent graphic projects</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-aos="flip-left" data-aos-duration="700">
+          <div class="portfolio-img">
+            <img src="images/mohit-logo.jpg" alt="Mohit Sharma Logo Design" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="portfolio-info">
+            <h3>Logo Design</h3>
+            <p>Brand ke liye logo bahut important hota hai, yeh pehchaan, trust, professionalism, aur customer connection ko strong banata hai.</p>
+          </div>
+        </div>
+        <div class="portfolio-item" data-aos="flip-left" data-aos-duration="700" data-aos-delay="100">
+          <div class="portfolio-img">
+            <img src="images/poster.png" alt="Mohit Sharma Poster Design" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="portfolio-info">
+            <h3>Poster Design</h3>
+            <p>Brand ke liye poster important hota hai, yeh promotion, attention, branding, offers highlight, aur customer engagement ko strong banata hai.</p>
+          </div>
+        </div>
+        <div class="portfolio-item" data-aos="flip-left" data-aos-duration="700" data-aos-delay="200">
+          <div class="portfolio-img">
+            <img src="images/thumbnail.png" alt="Mohit Sharma Thumbnail Design" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="portfolio-info">
+            <h3>Thumbnail Design</h3>
+            <p>YouTube channel ke liye thumbnail bahut important hota hai, yeh click attract karta hai, views badhata hai.</p>
+          </div>
+        </div>
+        <div class="portfolio-item" data-aos="flip-left" data-aos-duration="700" data-aos-delay="300">
+          <div class="portfolio-img">
+            <img src="images/social media.jpg" alt="Mohit Sharma Social Media Graphics" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="portfolio-info">
+            <h3>Social Media Graphics</h3>
+            <p>Social media graphics poster important hote hain, yeh brand visibility badhate hain, audience attract karte hain.</p>
+          </div>
+        </div>
+        <div class="portfolio-item" data-aos="flip-left" data-aos-duration="700" data-aos-delay="400">
+          <div class="portfolio-img">
+            <img src="images/visiting card.jpg" alt="Mohit Sharma Visiting Card Design" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="portfolio-info">
+            <h3>Visiting Card Design</h3>
+            <p>Brand ke liye visiting card design important hota hai, yeh professional identity, trust, contact sharing create karta hai.</p>
+          </div>
+        </div>
+        <div class="portfolio-item" data-aos="flip-left" data-aos-duration="700" data-aos-delay="500">
+          <div class="portfolio-img">
+            <img src="images/social media markating.jpg" alt="Mohit Sharma Social Media Marketing" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div class="portfolio-info">
+            <h3>Social Media Marketing</h3>
+            <p>Brand ke liye social media marketing important hai, yeh visibility badhata hai, audience engage karta hai.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container about-wrap">
+      <div class="about-text" data-aos="fade-right" data-aos-duration="800">
+        <h2>Design is my <span style="background: linear-gradient(135deg, #c084fc, #a855f7); -webkit-background-clip: text; background-clip: text; color: transparent;">superpower</span></h2>
+        <p>Hey, I'm Mohit Sharma — graphic & web designer based in India. I started my journey as a visual artist, then fell in love with code & interaction. I combine strong aesthetics with functional design to help brands communicate clearly.</p>
+        <p>My approach is collaborative: I listen, prototype, and refine until every pixel tells the right story. Whether you need a complete brand identity or a modern website, I'm here to bring ideas to life.</p>
+        <div class="skill-badge">
+          <span>Photoshop/Canva/Corel Draw</span>
+          <span>Graphic Design</span>
+          <span>HTML/CSS</span>
+          <span>JavaScript</span>
+          <span>Social Media Marketing</span>
+        </div>
+        <a href="#contact" class="btn-primary">Work with me →</a>
+      </div>
+      <div class="about-stats" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+        <div class="stat">
+          <div class="stat-number" data-count="2">0+</div>
+          <div>Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="100">0+</div>
+          <div>Design Projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="35">0+</div>
+          <div>Happy Clients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="100">0%</div>
+          <div>Commitment to quality</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Website Showcase Section -->
+  <section class="section">
+    <div class="container contact-card" data-aos="zoom-in-up" data-aos-duration="1000">
+      <h2>Please See My Created Website</h2>
+      <p style="max-width: 1000px; margin: 50px auto 20px;">This is a showcase of my recent web design projects.</p>
+      <div class="website-links">
+        <a href="https://mohitsharma863075-hash.github.io/JBH-GROWTH-MAIN-POWER-PVt.-Ltd/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> JBH GROWTH MANPOWER</a>
+        <a href="https://mohitsharma863075-hash.github.io/Hotel-Imperial-Empire/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> HOTEL IMPERIAL EMPIRE</a>
+        <a href="https://mohitsharma863075-hash.github.io/NIRMAN-FLEX/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> NIRMAN FLEX</a>
+        <a href="https://mohitsharma863075-hash.github.io/mohit.cart/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> E-commerce Website</a>
+        <a href="https://mohitsharma863075-hash.github.io/portfolio/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> Portfolio Website</a>
+        <a href="https://www.hotelhaveliinn.com/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> Hotel Haveli Inn</a>
+        <a href="https://www.hyphenhotels.com/premier-meerut/" class="website-link" target="_blank"><i class="fas fa-external-link-alt"></i> Hotel Hyphen</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container contact-card" data-aos="zoom-in-up" data-aos-duration="800">
+      <h2>Let's create <i class="fas fa-heart" style="color:#f05b56;"></i> something great</h2>
+      <p style="max-width: 500px; margin: 10px auto 20px;">Got a project in mind? Let's collaborate — from creative graphic design to full web presence.</p>
+      <div class="contact-options">
+        <a href="mailto:mohitsharma863075@gmail.com" class="contact-item" target="_blank">
+          <i class="fas fa-envelope"></i> mohitsharma863075@gmail.com
+        </a>
+        <a href="https://www.instagram.com/mohit_sharma9897" class="contact-item">       <br></Br>
+<i class="fab fa-instagram"></i> @mohit_sharma9897</a>      <br></Br>
+
+      </div>
+      <a href="https://wa.me/9258895817?text=Hey, I'm interested in working with you!" target="_blank">
+        <button class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+          <i class="fas fa-paper-plane"></i> Send quick message
+        </button>
+      </a>
+      <br></Br>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mohit_sharma9897" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/9258895817" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://github.com/mohitsharma863075-hash" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top: 24px;">© 2025 Mohit Sharma — Graphic Designer & Web Designer. All visions crafted with passion.</p>
+    <p style="font-size: 0.85rem; margin-top: 12px;"><i class="fas fa-code"></i> Designed & developed with passion</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  // Initialize AOS
+  AOS.init({ duration: 800, once: true, offset: 100, easing: 'ease-in-out' });
+
+  // Hide loader after page load
+  window.addEventListener('load', function() {
+    const loader = document.getElementById('loaderWrapper');
+    setTimeout(function() {
+      loader.classList.add('hide');
+    }, 500);
+  });
+
+  // Scroll Progress Bar
+  const progressBar = document.getElementById('scrollProgress');
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = scrollPercent + '%';
+    
+    // Navbar shrink on scroll
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    // Back to top button visibility
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  // Back to Top functionality
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Count Animation for Stats
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: "0px"
+  };
+  
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const targetCount = parseInt(element.getAttribute('data-count'));
+        if (!element.classList.contains('counted')) {
+          element.classList.add('counted');
+          let currentCount = 0;
+          const increment = targetCount / 50;
+          const timer = setInterval(() => {
+            currentCount += increment;
+            if (currentCount >= targetCount) {
+              element.innerText = targetCount + (element.innerText.includes('%') ? '%' : '+');
+              clearInterval(timer);
+            } else {
+              element.innerText = Math.floor(currentCount) + (element.innerText.includes('%') ? '%' : '+');
+            }
+          }, 20);
+        }
+      }
+    });
+  }, observerOptions);
+  
+  statNumbers.forEach(stat => countObserver.observe(stat));
+
+  // Particle Background
+  const canvas = document.getElementById('particleCanvas');
+  if (canvas && window.innerWidth > 768) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouseX = null;
+    let mouseY = null;
+    
+    function resizeCanvas() { 
+      canvas.width = window.innerWidth; 
+      canvas.height = window.innerHeight; 
+    }
+    
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 3 + 1,
+          speedX: (Math.random() - 0.5) * 0.3,
+          speedY: (Math.random() - 0.5) * 0.3,
+          color: `rgba(139, 92, 246, ${Math.random() * 0.2 + 0.05})`
+        });
+      }
+    }
+    
+    // Mouse move effect for particles
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      // Create ripple effect on mouse move
+      for (let i = 0; i < 2; i++) {
+        const ripple = document.createElement('div');
+        ripple.style.position = 'fixed';
+        ripple.style.left = mouseX + 'px';
+        ripple.style.top = mouseY + 'px';
+        ripple.style.width = '4px';
+        ripple.style.height = '4px';
+        ripple.style.background = 'radial-gradient(circle, #c084fc, transparent)';
+        ripple.style.borderRadius = '50%';
+        ripple.style.pointerEvents = 'none';
+        ripple.style.zIndex = '9998';
+        ripple.style.opacity = '0.5';
+        ripple.style.animation = 'rippleFade 0.5s ease-out forwards';
+        document.body.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 500);
+      }
+    });
+    
+    function animateParticles() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.speedX;
+        p.y += p.speedY;
+        
+        // Mouse interaction - particles move away from cursor
+        if (mouseX && mouseY) {
+          const dx = p.x - mouseX;
+          const dy = p.y - mouseY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 100) {
+            const angle = Math.atan2(dy, dx);
+            const force = (100 - distance) / 100;
+            p.x += Math.cos(angle) * force * 2;
+            p.y += Math.sin(angle) * force * 2;
+          }
+        }
+        
+        // Wrap around edges
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    
+    window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+    resizeCanvas();
+    initParticles();
+    animateParticles();
+  }
+
+  // Add ripple fade animation style
+  const rippleFadeStyle = document.createElement('style');
+  rippleFadeStyle.textContent = `
+    @keyframes rippleFade {
+      0% { transform: scale(1); opacity: 0.5; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(rippleFadeStyle);
+
+  // Smooth scroll with offset
+  document.querySelectorAll('.nav-links a, .hero-buttons a, .about-text .btn-primary, .contact-card .btn-primary').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(targetId);
+        if (target) {
+          const offset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+
+  // Parallax effect for hero section
+  window.addEventListener('scroll', () => {
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+      heroImage.style.transform = `translateY(${window.pageYOffset * 0.1}px)`;
+    }
+  });
+
+  // Ripple effect on buttons
+  const rippleStyle = document.createElement('style');
+  rippleStyle.textContent = `
+    .btn-primary, .btn-outline { position: relative; overflow: hidden; }
+    .ripple { position: absolute; border-radius: 50%; background-color: rgba(255,255,255,0.4); width: 100px; height: 100px; margin-top: -50px; margin-left: -50px; animation: ripple-animation 0.6s ease-out; pointer-events: none; }
+    @keyframes ripple-animation { from { transform: scale(0); opacity: 0.6; } to { transform: scale(4); opacity: 0; } }
+    .btn-outline .ripple { background-color: rgba(192,132,252,0.4); }
+  `;
+  document.head.appendChild(rippleStyle);
+  
+  document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      const rect = this.getBoundingClientRect();
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top = (e.clientY - rect.top) + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // Typing effect for hero badge
+  const heroBadge = document.querySelector('.hero-badge');
+  if (heroBadge) {
+    heroBadge.style.opacity = '0';
+    setTimeout(() => {
+      heroBadge.style.transition = 'opacity 0.5s ease';
+      heroBadge.style.opacity = '1';
+    }, 300);
+  }
+
+  // Add hover scale effect to website links
+  const websiteLinks = document.querySelectorAll('.website-link');
+  websiteLinks.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+      link.style.transform = 'translateX(10px) scale(1.02)';
+    });
+    link.addEventListener('mouseleave', () => {
+      link.style.transform = 'translateX(0) scale(1)';
+    });
+  });
+</script>
+</body>
+</html>
