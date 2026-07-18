@@ -1026,8 +1026,117 @@
 
 .visitor-counter i {
   color: #c084fc;
+}/* Animated Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
 }
 
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.6);
+}
+
+.back-to-top .progress-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 3px solid rgba(139, 92, 246, 0.3);
+  border-top-color: #c084fc;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* Loader Option 2 - Spinning Rings */
+.spinning-rings {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  animation: ringSpin 1.5s linear infinite;
+}
+
+.ring-1 {
+  width: 100px;
+  height: 100px;
+  border-top-color: #c084fc;
+  border-right-color: #a855f7;
+  animation-duration: 1.2s;
+}
+
+.ring-2 {
+  width: 70px;
+  height: 70px;
+  top: 15px;
+  left: 15px;
+  border-bottom-color: #7c3aed;
+  border-left-color: #8b5cf6;
+  animation-duration: 1.8s;
+  animation-direction: reverse;
+}
+
+.ring-3 {
+  width: 40px;
+  height: 40px;
+  top: 30px;
+  left: 30px;
+  border-top-color: #a855f7;
+  border-right-color: #c084fc;
+  animation-duration: 0.9s;
+}
+
+@keyframes ringSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-title {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #c084fc, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.loader-sub {
+  color: #9b96b5;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
     /* Responsive */
     @media (max-width: 780px) {
       .container {
@@ -1064,18 +1173,28 @@
 </head>
 <body>
 
-<!-- Loading Animation -->
+<!-- Loading Animation - Option 2 -->
 <div class="loader-wrapper" id="loaderWrapper">
-  <div class="progress-bar"></div>
+  <div class="loader-container">
+    <div class="spinning-rings">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+    </div>
+    <h2 class="loader-title">Mohit Sharma</h2>
+    <p class="loader-sub">Designing experiences...</p>
+  </div>
 </div>
 
 <!-- Scroll Progress Bar -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- Back to Top Button -->
-<div class="back-to-top" id="backToTop">
+<!-- Back to Top with Progress -->
+<button class="back-to-top" id="backToTop">
+  <span class="progress-ring"></span>
   <i class="fas fa-arrow-up"></i>
-</div>
+</button>
 
 <!-- Background Particle Canvas -->
  <canvas id="waterCanvas"></canvas>
@@ -1333,6 +1452,7 @@
     </div>
   </section>
   
+  
   <!-- Website Showcase Section -->
   <section class="section">
     <div class="container contact-card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -1366,9 +1486,319 @@
   }
 </style>
 
-<!-- Add this JavaScript -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container contact-card" data-aos="zoom-in-up" data-aos-duration="800">
+      <h2>Let's create <i class="fas fa-heart" style="color:#f05b56;"></i> something great</h2>
+      <p style="max-width: 500px; margin: 10px auto 20px;">Got a project in mind? Let's collaborate — from creative graphic design to full web presence.</p>
+      <div class="contact-options">
+        <a href="mailto:mohitsharma863075@gmail.com" class="contact-item" target="_blank">
+          <i class="fas fa-envelope"></i> mohitsharma863075@gmail.com
+        </a>
+        <a href="https://www.instagram.com/mohit_sharma9897" class="contact-item">       <br></Br>
+<i class="fab fa-instagram"></i> @mohit_sharma9897</a>      <br></Br>
+
+      </div>
+      <a href="https://wa.me/9258895817?text=Hey, I'm interested in working with you!" target="_blank">
+        <button class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+          <i class="fas fa-paper-plane"></i> Send quick message
+        </button>
+      </a>
+      <br></Br>
+    </div>
+  </section>
+  
+  <!-- Journey Timeline -->
+<section id="journey" class="section">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">My Journey</h2>
+    <div class="timeline" style="position:relative;max-width:800px;margin:0 auto;padding:20px 0;">
+      
+      <div style="position:absolute;left:50%;transform:translateX(-50%);width:3px;height:100%;background:linear-gradient(to bottom,#c084fc,#a855f7);"></div>
+      
+      <div class="timeline-item" style="display:flex;justify-content:flex-end;padding:20px 40px;position:relative;width:50%;margin-left:50%;" data-aos="fade-left">
+        <div style="background:rgba(26,21,53,0.6);border-radius:16px;padding:20px;border:1px solid rgba(139,92,246,0.2);width:100%;">
+          <h3 style="color:#c084fc;">2024 - Present</h3>
+          <p style="color:#b4b0c9;">Freelance Graphic & Web Designer - Working with 35+ clients globally</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" style="display:flex;justify-content:flex-start;padding:20px 40px;position:relative;width:50%;" data-aos="fade-right">
+        <div style="background:rgba(26,21,53,0.6);border-radius:16px;padding:20px;border:1px solid rgba(139,92,246,0.2);width:100%;">
+          <h3 style="color:#c084fc;">2022 - 2024</h3>
+          <p style="color:#b4b0c9;">Graphic Design Intern → Junior Designer - Learned the ropes of design & branding</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item" style="display:flex;justify-content:flex-end;padding:20px 40px;position:relative;width:50%;margin-left:50%;" data-aos="fade-left">
+        <div style="background:rgba(26,21,53,0.6);border-radius:16px;padding:20px;border:1px solid rgba(139,92,246,0.2);width:100%;">
+          <h3 style="color:#c084fc;">2021</h3>
+          <p style="color:#b4b0c9;">Started Design Journey - Passion for visual storytelling & creativity</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+</main>
+<form class="contact-form" id="contactForm">
+  <h3 style="text-align: center; margin-bottom: 25px;">Send me a message</h3>
+  <div class="form-group">
+    <input type="text" id="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <input type="email" id="email" placeholder="Your Email" required>
+  </div>
+  <div class="form-group">
+    <input type="text" id="subject" placeholder="Subject">
+  </div>
+  <div class="form-group">
+    <textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+  </div>
+  <button type="submit" class="btn-primary" style="width: 100%;">
+    <i class="fas fa-paper-plane"></i> Send Message
+  </button>
+  
+</form>
+
+<footer>
+  <div class="container">
+    <div class="footer-social">
+      <a href="https://www.instagram.com/mohit_sharma9897" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/9258895817" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://github.com/mohitsharma863075-hash" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+    <p style="margin-top: 24px;">© 2025 Mohit Sharma — Graphic Designer & Web Designer. All visions crafted with passion.</p>
+    <p style="font-size: 0.85rem; margin-top: 12px;"><i class="fas fa-code"></i> Designed & developed with passion</p>
+  </div>
+</footer>
+
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  // Text Scramble Effect
+  // Initialize AOS
+  AOS.init({ duration: 800, once: true, offset: 100, easing: 'ease-in-out' });
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loaderWrapper");
+
+  // minimum 1 second show (premium feel)
+  setTimeout(() => {
+    loader.classList.add("hide");
+  }, 1000);
+});
+  // Scroll Progress Bar
+  const progressBar = document.getElementById('scrollProgress');
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = scrollPercent + '%';
+    
+    // Navbar shrink on scroll
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+    
+    // Back to top button visibility
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+// Contact Form Handler
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    
+    if (!name || !email || !message) {
+      showToast('Please fill all required fields!', 'error');
+      return;
+    }
+    
+    if (!email.includes('@')) {
+      showToast('Please enter valid email!', 'error');
+      return;
+    }
+    
+    // Simulate form submission
+    showToast('Message sent! I will contact you soon.');
+    contactForm.reset();
+  });
+}
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loaderWrapper").classList.add("hide");
+  }, 2000);
+});
+// Back to Top with smooth progress
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+   // Add gradient animation to all headings
+  document.querySelectorAll('h1, h2, h3, .logo').forEach(heading => {
+    if (!heading.classList.contains('gradient-text')) {
+      heading.classList.add('gradient-text');
+    }
+  });
+  // Show/hide based on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+}
+// Visitor Counter
+function updateVisitorCount() {
+  let count = localStorage.getItem('visitorCount') || 0;
+  count = parseInt(count) + 1;
+  localStorage.setItem('visitorCount', count);
+  document.getElementById('visitorCount').textContent = count;
+}
+
+// Call once on page load
+updateVisitorCount();
+// Toast Notification Function
+function showToast(message, type = 'success') {
+  const toast = document.getElementById('toast');
+  if (toast) {
+    toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${message}`;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+}
+// Confetti Effect
+function launchConfetti() {
+  const colors = ['#c084fc', '#a855f7', '#fbbf24', '#34d399', '#f472b6', '#60a5fa'];
+  
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement('div');
+    confetti.style.cssText = `
+      position: fixed;
+      width: ${Math.random() * 10 + 5}px;
+      height: ${Math.random() * 10 + 5}px;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      left: ${Math.random() * 100}vw;
+      top: -20px;
+      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+      pointer-events: none;
+      z-index: 9999;
+      animation: confettiFall ${Math.random() * 3 + 2}s linear forwards;
+      transform: rotate(${Math.random() * 360}deg);
+    `;
+    document.body.appendChild(confetti);
+    
+    setTimeout(() => confetti.remove(), 5000);
+  }
+}
+
+// Add confetti animation
+const confettiStyle = document.createElement('style');
+confettiStyle.textContent = `
+  @keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+`;
+document.head.appendChild(confettiStyle);
+
+// Trigger on form submit
+document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+  // ... existing code ...
+  launchConfetti();
+});
+// Morphing Shape Background
+  const morphShape = document.querySelector('.morph-shape');
+  if (morphShape) {
+    let time = 0;
+    
+    function morphShapeAnimation() {
+      time += 0.01;
+      
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      // Create organic morphing path
+      const points = [];
+      const segments = 6;
+      
+      for (let i = 0; i <= segments; i++) {
+        const x = (width / segments) * i;
+        const y1 = height * (0.2 + Math.sin(time + i * 0.5) * 0.1);
+        const y2 = height * (0.8 + Math.cos(time * 0.7 + i * 0.3) * 0.1);
+        points.push({ x, y1, y2 });
+      }
+      
+      let path = `M0,0 `;
+      for (let i = 0; i <= segments; i++) {
+        path += `L${points[i].x},${points[i].y1} `;
+      }
+      path += `L${width},${height} L0,${height} Z`;
+      
+      morphShape.setAttribute('d', path);
+      requestAnimationFrame(morphShapeAnimation);
+    }
+    
+    morphShapeAnimation();
+  }
+  // Back to Top functionality
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Count Animation for Stats
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: "0px"
+  };
+  
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        const targetCount = parseInt(element.getAttribute('data-count'));
+        if (!element.classList.contains('counted')) {
+          element.classList.add('counted');
+          let currentCount = 0;
+          const increment = targetCount / 50;
+          const timer = setInterval(() => {
+            currentCount += increment;
+            if (currentCount >= targetCount) {
+              element.innerText = targetCount + (element.innerText.includes('%') ? '%' : '+');
+              clearInterval(timer);
+            } else {
+              element.innerText = Math.floor(currentCount) + (element.innerText.includes('%') ? '%' : '+');
+            }
+          }, 20);
+        }
+      }
+    });
+  }, observerOptions);
+  
+  statNumbers.forEach(stat => countObserver.observe(stat));
+ // Text Scramble Effect
   class TextScramble {
     constructor(el) {
       this.el = el;
@@ -1544,243 +1974,7 @@ document.querySelectorAll('.service-card, .portfolio-item').forEach(card => {
       });
       counter = (counter + 1) % phrases.length;
     };
-    next();
-  }
-</script>
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container contact-card" data-aos="zoom-in-up" data-aos-duration="800">
-      <h2>Let's create <i class="fas fa-heart" style="color:#f05b56;"></i> something great</h2>
-      <p style="max-width: 500px; margin: 10px auto 20px;">Got a project in mind? Let's collaborate — from creative graphic design to full web presence.</p>
-      <div class="contact-options">
-        <a href="mailto:mohitsharma863075@gmail.com" class="contact-item" target="_blank">
-          <i class="fas fa-envelope"></i> mohitsharma863075@gmail.com
-        </a>
-        <a href="https://www.instagram.com/mohit_sharma9897" class="contact-item">       <br></Br>
-<i class="fab fa-instagram"></i> @mohit_sharma9897</a>      <br></Br>
-
-      </div>
-      <a href="https://wa.me/9258895817?text=Hey, I'm interested in working with you!" target="_blank">
-        <button class="btn-primary" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
-          <i class="fas fa-paper-plane"></i> Send quick message
-        </button>
-      </a>
-      <br></Br>
-    </div>
-  </section>
-</main>
-<form class="contact-form" id="contactForm">
-  <h3 style="text-align: center; margin-bottom: 25px;">Send me a message</h3>
-  <div class="form-group">
-    <input type="text" id="name" placeholder="Your Name" required>
-  </div>
-  <div class="form-group">
-    <input type="email" id="email" placeholder="Your Email" required>
-  </div>
-  <div class="form-group">
-    <input type="text" id="subject" placeholder="Subject">
-  </div>
-  <div class="form-group">
-    <textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea>
-  </div>
-  <button type="submit" class="btn-primary" style="width: 100%;">
-    <i class="fas fa-paper-plane"></i> Send Message
-  </button>
-  
-</form>
-
-<footer>
-  <div class="container">
-    <div class="footer-social">
-      <a href="https://www.instagram.com/mohit_sharma9897" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://wa.me/9258895817" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://github.com/mohitsharma863075-hash" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <p style="margin-top: 24px;">© 2025 Mohit Sharma — Graphic Designer & Web Designer. All visions crafted with passion.</p>
-    <p style="font-size: 0.85rem; margin-top: 12px;"><i class="fas fa-code"></i> Designed & developed with passion</p>
-  </div>
-</footer>
-
-
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  // Initialize AOS
-  AOS.init({ duration: 800, once: true, offset: 100, easing: 'ease-in-out' });
-
-window.addEventListener("load", () => {
-  const loader = document.getElementById("loaderWrapper");
-
-  // minimum 1 second show (premium feel)
-  setTimeout(() => {
-    loader.classList.add("hide");
-  }, 1000);
-});
-  // Scroll Progress Bar
-  const progressBar = document.getElementById('scrollProgress');
-  const backToTopBtn = document.getElementById('backToTop');
-  
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / scrollHeight) * 100;
-    progressBar.style.width = scrollPercent + '%';
-    
-    // Navbar shrink on scroll
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    
-    // Back to top button visibility
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add('show');
-    } else {
-      backToTopBtn.classList.remove('show');
-    }
-  });
-// Contact Form Handler
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    if (!name || !email || !message) {
-      showToast('Please fill all required fields!', 'error');
-      return;
-    }
-    
-    if (!email.includes('@')) {
-      showToast('Please enter valid email!', 'error');
-      return;
-    }
-    
-    // Simulate form submission
-    showToast('Message sent! I will contact you soon.');
-    contactForm.reset();
-  });
-}
-// Back to Top with smooth progress
-const backToTop = document.getElementById('backToTop');
-if (backToTop) {
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-   // Add gradient animation to all headings
-  document.querySelectorAll('h1, h2, h3, .logo').forEach(heading => {
-    if (!heading.classList.contains('gradient-text')) {
-      heading.classList.add('gradient-text');
-    }
-  });
-  // Show/hide based on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
-    }
-  });
-}
-// Visitor Counter
-function updateVisitorCount() {
-  let count = localStorage.getItem('visitorCount') || 0;
-  count = parseInt(count) + 1;
-  localStorage.setItem('visitorCount', count);
-  document.getElementById('visitorCount').textContent = count;
-}
-
-// Call once on page load
-updateVisitorCount();
-// Toast Notification Function
-function showToast(message, type = 'success') {
-  const toast = document.getElementById('toast');
-  if (toast) {
-    toast.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${message}`;
-    toast.classList.add('show');
-    setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3000);
-  }
-}
-// Morphing Shape Background
-  const morphShape = document.querySelector('.morph-shape');
-  if (morphShape) {
-    let time = 0;
-    
-    function morphShapeAnimation() {
-      time += 0.01;
-      
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      
-      // Create organic morphing path
-      const points = [];
-      const segments = 6;
-      
-      for (let i = 0; i <= segments; i++) {
-        const x = (width / segments) * i;
-        const y1 = height * (0.2 + Math.sin(time + i * 0.5) * 0.1);
-        const y2 = height * (0.8 + Math.cos(time * 0.7 + i * 0.3) * 0.1);
-        points.push({ x, y1, y2 });
-      }
-      
-      let path = `M0,0 `;
-      for (let i = 0; i <= segments; i++) {
-        path += `L${points[i].x},${points[i].y1} `;
-      }
-      path += `L${width},${height} L0,${height} Z`;
-      
-      morphShape.setAttribute('d', path);
-      requestAnimationFrame(morphShapeAnimation);
-    }
-    
-    morphShapeAnimation();
-  }
-  // Back to Top functionality
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Count Animation for Stats
-  const statNumbers = document.querySelectorAll('.stat-number');
-  const observerOptions = {
-    threshold: 0.5,
-    rootMargin: "0px"
-  };
-  
-  const countObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const element = entry.target;
-        const targetCount = parseInt(element.getAttribute('data-count'));
-        if (!element.classList.contains('counted')) {
-          element.classList.add('counted');
-          let currentCount = 0;
-          const increment = targetCount / 50;
-          const timer = setInterval(() => {
-            currentCount += increment;
-            if (currentCount >= targetCount) {
-              element.innerText = targetCount + (element.innerText.includes('%') ? '%' : '+');
-              clearInterval(timer);
-            } else {
-              element.innerText = Math.floor(currentCount) + (element.innerText.includes('%') ? '%' : '+');
-            }
-          }, 20);
-        }
-      }
-    });
-  }, observerOptions);
-  
-  statNumbers.forEach(stat => countObserver.observe(stat));
-
+    next();}
   // Particle Background
   const canvas = document.getElementById('particleCanvas');
   if (canvas && window.innerWidth > 768) {
