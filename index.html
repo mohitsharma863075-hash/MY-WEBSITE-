@@ -7,11 +7,7 @@
   <!-- Google Fonts + Smooth Icons (Font Awesome CDN) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Advanced Features CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">  <!-- Advanced Features CSS -->
   <style>
     * {
       margin: 0;
@@ -197,7 +193,17 @@
       border: 1px solid rgba(139, 92, 246, 0.3);
       animation: pulse 2s infinite;
     }
+/* Headings ke liye - Space Grotesk */
+h1, h2, h3, h4, h5, h6, .logo, .section-title, .hero-content h1, .scramble-text, .loader-title {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
 
+/* Body text ke liye - Inter */
+body, p, .nav-links, .btn, .btn-primary, .btn-outline, input, textarea, .stat, .skill-info, .service-card p, .portfolio-info p, .hero-badge, .section-sub, .contact-item, footer p {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
     @keyframes pulse {
       0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
       70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
